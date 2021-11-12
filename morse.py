@@ -13,6 +13,11 @@ from assets import morse_rules
 
 
 def play_sound(set_time_number: int):
+    """play beep sound with time number
+
+    Args:
+        set_time_number (int): set time number
+    """
     song = MediaPlayer('beep.mp3')
     song.play()
     song.set_time(set_time_number)
@@ -20,10 +25,15 @@ def play_sound(set_time_number: int):
 
 
 def play_morse(characters: "str"):
+    """play morse sound
+
+    Args:
+        characters (str): characters of a letter
+    """
     for character in characters:
-        if character == ".":
+        if character == "•":
             play_sound(500)
-        elif character == "-":
+        elif character == "−":
             play_sound(250)
         else:
             sleep(1)
@@ -31,15 +41,13 @@ def play_morse(characters: "str"):
 
 
 text = input("Text: ").upper()
-morse_codes = ""
-
+morse_codes = []
 for letter in text:
     letter_morse = morse_rules.get(letter, "")
     if letter_morse:
-        morse_codes += f"{letter_morse} "
-        play_morse(letter_morse)
+        morse_codes.append(letter_morse)
 
+print(f"{text} : {' '.join(morse_codes)}")
 
-morse_code_style = morse_codes.replace(
-    ".", "•").replace("-", "−").replace("  ", " |")
-print(f"{text} : {morse_code_style}")
+for letter in morse_codes:
+    play_morse(letter)
