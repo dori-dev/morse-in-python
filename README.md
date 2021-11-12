@@ -1,2 +1,2 @@
 # Morse in Python
-Convert text(english) to morse code and play morse code sound!
+Convert text(english) to morse codes and play morse sound!
