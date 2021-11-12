@@ -17,3 +17,9 @@ pip3 install python-vlc
 ```
 python3 main.py
 ```
+
+#
+
+# You Can Change
+
+- You can change the sleep times and set_time_number in `functions.py` to change output sound!
