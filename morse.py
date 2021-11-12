@@ -12,32 +12,33 @@ from vlc import MediaPlayer
 from assets import morse_rules
 
 
-def play_sound(time_left: int):
+def play_sound(set_time_number: int):
     song = MediaPlayer('beep.mp3')
     song.play()
-    song.set_time(time_left)
-    sleep(0.2)
+    song.set_time(set_time_number)
+    sleep(0.5)
 
 
 def play_morse(characters: "str"):
     for character in characters:
         if character == ".":
-            play_sound(300)
+            play_sound(500)
         elif character == "-":
-            play_sound(800)
+            play_sound(250)
         else:
             sleep(2)
-    sleep(0.5)
+    sleep(1)
 
 
 text = input("Text: ").upper()
 morse_codes = ""
 
 for letter in text:
-    morse_codes += morse_rules.get(letter, " ")
+    letter_morse = morse_rules.get(letter, "")
+    morse_codes += f"{letter_morse} "
+    play_morse(letter_morse)
 
-play_morse(morse_codes)
 
 morse_code_style = morse_codes.replace(
-    ".", "•").replace("-", "−").replace(" ", " |  ")
+    ".", "•").replace("-", "−").replace("  ", " |  ")
 print(f"{text} : {morse_code_style}")
