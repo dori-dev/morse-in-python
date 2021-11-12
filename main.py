@@ -4,7 +4,7 @@ and play morse code sound.
 
 # Local import
 from assets import morse_rules
-from functions import play_morse, play_sound
+from functions import play_morse
 
 
 text = input("Text: ").upper()
