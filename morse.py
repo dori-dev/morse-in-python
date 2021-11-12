@@ -26,8 +26,8 @@ def play_morse(characters: "str"):
         elif character == "-":
             play_sound(250)
         else:
-            sleep(2)
-    sleep(1)
+            sleep(1)
+    sleep(0.5)
 
 
 text = input("Text: ").upper()
@@ -35,10 +35,11 @@ morse_codes = ""
 
 for letter in text:
     letter_morse = morse_rules.get(letter, "")
-    morse_codes += f"{letter_morse} "
-    play_morse(letter_morse)
+    if letter_morse:
+        morse_codes += f"{letter_morse} "
+        play_morse(letter_morse)
 
 
 morse_code_style = morse_codes.replace(
-    ".", "•").replace("-", "−").replace("  ", " |  ")
+    ".", "•").replace("-", "−").replace("  ", " |")
 print(f"{text} : {morse_code_style}")
