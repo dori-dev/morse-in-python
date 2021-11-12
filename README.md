@@ -23,3 +23,11 @@ python3 main.py
 # You Can Change
 
 - You can change the sleep times and set_time_number in `functions.py` to change output sound!
+
+#
+
+# Links
+
+Download Source Code: [Click Here](https://github.com/dori-dev/morse-in-python/archive/refs/heads/main.zip)
+
+My Github Acount: [Click Here](https://github.com/dori-dev/)
